@@ -1,19 +1,27 @@
-def split_at_digit(formula):
-    prefix = ""
-    num_str = ""
-    digit_started = False
-
+def split_before_each_uppercase(formula):
+    parts = []
+    current = ""
     for ch in formula:
-        if ch.isdigit():
-            if not digit_started:
-                digit_started = True
-            num_str += ch
+        if ch.isupper():
+            if current:
+                parts.append(current)
+            current = ch  # start new chunk
         else:
-            if digit_started:
-                break
-            prefix += ch
+            current += ch
+    if current:
+        parts.append(current)
+    return parts
+def split_before_each_uppercase(formula):
+    parts = []
+    current = ""
+    for ch in formula:
+        if ch.isupper():
+            if current:
+                parts.append(current)
+            current = ch  # start new chunk
+        else:
+            current += ch
+    if current:
+        parts.append(current)
 
-    if not digit_started:
-        return formula, 1
-
-    return prefix, int(num_str)
+    return parts
