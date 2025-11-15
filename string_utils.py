@@ -1,21 +1,19 @@
 def split_at_digit(formula):
-    for i, ch in enumerate(formula):
-        if ch.isdigit():
-            prefix = formula[:i]
-            return prefix, int(formula[i:])
-    return formula, 1
+    prefix = ""
+    num_str = ""
+    digit_started = False
 
-
-def split_before_each_uppercase(formula):
-    parts = []
-    current = ""
     for ch in formula:
-        if ch.isupper():
-            if current:
-                parts.append(current)
-            current = ch  
+        if ch.isdigit():
+            if not digit_started:
+                digit_started = True
+            num_str += ch
         else:
-            current += ch
-    if current:
-        parts.append(current)
-    return parts
+            if digit_started:
+                break
+            prefix += ch
+
+    if not digit_started:
+        return formula, 1
+
+    return prefix, int(num_str)
