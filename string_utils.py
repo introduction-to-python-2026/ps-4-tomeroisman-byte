@@ -20,4 +20,4 @@ def split_at_first_digit(formula):
     else:
       prefix = formula[:l]
       numeric = formula[l:]
-      return prefix,numeric
+      return prefix,int(numeric)
