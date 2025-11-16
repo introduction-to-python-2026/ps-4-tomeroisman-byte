@@ -15,8 +15,8 @@ def split_before_each_uppercases(formula):
 
 def split_at_first_digit(formula):
     digit_location = 1
-    for l in range(1, len(formula)):
-      if formula[l].isdigit() == True:
+    for i in range(1, len(formula)):
+      if formula[i].isdigit() == True:
         break
       else:
         digit_location += 1
