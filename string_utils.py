@@ -8,19 +8,16 @@ def split_before_each_uppercases(formula):
     split_formula.append(formula[start:])
     return split_formula
 
-def split_at_digit(formula):
-    num_found = 1
+def split_at_first_digit(formula):
     digit_location = 1
-    for l in range(len(formula[1:])):
-        if l.isdigit():
-            digit_location.append(l)
-            break
-        else:
-            num_found = 0
-        if digit_location == len(formula):
-            if num_found = 0:
-                return formula, 1
-            elif num_found != 0:
-                prefix = formula[:i]
-                numeric = formula[i:]
-                return prefix,numeric
+    for l in range(1, len(formula)):
+      if formula[l].isdigit() == True:
+        break
+      else:
+        digit_location += 1
+    if digit_location == len(formula):
+      return formula, 1
+    else:
+      prefix = formula[:l]
+      numeric = formula[l:]
+      return prefix,numeric
