@@ -1,17 +1,18 @@
 def split_at_digit(formula):
     prefix = ""
     num = ""
+    digit_start = False
     for i in formula:
-        if i.isdigit:            
+        if i.isdigit():
+            digit_start = True
             num += i
         else:
-            if number:
+            if num:
                 break
-            break
             prefix += i
-        if num:
-            return prefix, int(num)
-        else:
+    if digit_start:
+        return prefix, int(num)
+    else:
             return formula, 1
             
 def split_before_each_uppercases(formula):
