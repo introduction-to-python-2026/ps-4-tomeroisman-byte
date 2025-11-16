@@ -11,7 +11,6 @@ def split_before_each_uppercases(formula):
     if current:
         parts.append(current)
     return parts
-
 def split_before_each_uppercase(formula):
     parts = []
     current = ""
@@ -24,5 +23,4 @@ def split_before_each_uppercase(formula):
             current += ch
     if current:
         parts.append(current)
-
     return parts
